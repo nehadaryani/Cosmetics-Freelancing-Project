@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balaji Cosmetics – Glow Naturally</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #C2617A;
+    --rose-light: #F7E6EB;
+    --rose-dark: #8C3D52;
+    --gold: #C9A84C;
+    --gold-light: #FBF4E3;
+    --cream: #FDF8F5;
+    --charcoal: #2C2420;
+    --muted: #8A7570;
+    --white: #FFFFFF;
+    --shadow: 0 4px 24px rgba(44,36,32,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,248,245,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(194,97,122,0.12);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 70px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--rose-dark); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--charcoal); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-actions { display: flex; align-items: center; gap: 1.2rem; }
+  .cart-btn {
+    background: var(--rose); color: white; border: none;
+    padding: 0.5rem 1.2rem; border-radius: 2rem; font-size: 0.8rem;
+    font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.08em;
+    cursor: pointer; transition: background 0.2s; display: flex; align-items: center; gap: 0.4rem;
+  }
+  .cart-btn:hover { background: var(--rose-dark); }
+  .cart-count {
+    background: var(--gold); color: white; border-radius: 50%;
+    width: 18px; height: 18px; font-size: 0.7rem; display: inline-flex;
+    align-items: center; justify-content: center; font-weight: 600;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 100px 5% 4rem;
+    background: linear-gradient(135deg, #FDF8F5 0%, #F7E6EB 50%, #FBF4E3 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(194,97,122,0.08) 0%, transparent 70%);
+  }
+  .hero-content { max-width: 560px; position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose); background: var(--rose-light); padding: 0.4rem 1rem;
+    border-radius: 2rem; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.2rem; font-weight: 300; line-height: 1.1;
+    color: var(--charcoal); margin-bottom: 1.2rem;
+  }
+  .hero h1 em { color: var(--rose); font-style: italic; }
+  .hero p {
+    font-size: 1rem; color: var(--muted); line-height: 1.75;
+    margin-bottom: 2.5rem; max-width: 440px;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--rose); color: white; border: none;
+    padding: 0.85rem 2.2rem; border-radius: 2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    transition: all 0.25s; text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(194,97,122,0.3); }
+  .btn-outline {
+    background: transparent; color: var(--charcoal);
+    border: 1.5px solid rgba(44,36,32,0.25);
+    padding: 0.85rem 2.2rem; border-radius: 2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    transition: all 0.25s; text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--rose); color: var(--rose); }
+  .hero-visual {
+    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    width: 420px; height: 520px;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #F7E6EB, #FBF4E3);
+    border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 8rem;
+    color: var(--rose-light);
+    box-shadow: var(--shadow);
+    animation: morphShape 8s ease-in-out infinite;
+  }
+  @keyframes morphShape {
+    0%, 100% { border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%; }
+    50% { border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; }
+  }
+  .hero-stats {
+    display: flex; gap: 3rem;
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(194,97,122,0.15);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600; color: var(--rose-dark); display: block;
+  }
+  .stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: var(--charcoal); padding: 0.9rem 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-block; animation: marquee 20s linear infinite;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cream); opacity: 0.8;
+  }
+  .marquee-track span { margin: 0 2.5rem; }
+  .marquee-track .dot { color: var(--rose); font-size: 1rem; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* SECTION SHARED */
+  section { padding: 5rem 5%; }
+  .section-tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; line-height: 1.2; color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 500px; }
+
+  /* CATEGORIES */
+  .categories { background: var(--white); }
+  .categories-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem; margin-top: 3rem;
+  }
+  .cat-card {
+    background: var(--cream); border-radius: 1.5rem; padding: 2rem 1.2rem;
+    text-align: center; cursor: pointer; transition: all 0.3s;
+    border: 1.5px solid transparent;
+  }
+  .cat-card:hover { border-color: var(--rose); background: var(--rose-light); transform: translateY(-4px); box-shadow: var(--shadow); }
+  .cat-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+  .cat-name { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; color: var(--charcoal); }
+  .cat-count { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* PRODUCTS */
+  .products { background: var(--cream); }
+  .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .filter-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .pill {
+    padding: 0.4rem 1.1rem; border-radius: 2rem; font-size: 0.78rem;
+    font-weight: 500; cursor: pointer; transition: all 0.2s;
+    border: 1.5px solid rgba(44,36,32,0.15); color: var(--muted);
+    background: transparent;
+  }
+  .pill.active, .pill:hover { background: var(--rose); color: white; border-color: var(--rose); }
+  .products-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card {
+    background: var(--white); border-radius: 1.5rem; overflow: hidden;
+    transition: all 0.3s; cursor: pointer; box-shadow: 0 2px 12px rgba(44,36,32,0.05);
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .product-img {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative;
+    background: linear-gradient(135deg, var(--rose-light), var(--gold-light));
+    overflow: hidden;
+  }
+  .product-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .product-img img { transform: scale(1.06); }
+  .product-img .img-fallback {
+    position: absolute; font-size: 4rem;
+  }
+  .badge {
+    position: absolute; top: 1rem; left: 1rem;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2rem;
+  }
+  .badge-new { background: var(--rose); color: white; }
+  .badge-sale { background: var(--gold); color: white; }
+  .badge-bestseller { background: var(--charcoal); color: white; }
+  .product-info { padding: 1.2rem 1.3rem 1.5rem; }
+  .product-category { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.3rem; }
+  .product-brand { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.8rem; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; }
+  .product-price { font-size: 1.1rem; font-weight: 600; color: var(--charcoal); }
+  .product-price .old { font-size: 0.82rem; color: var(--muted); text-decoration: line-through; margin-right: 0.4rem; font-weight: 400; }
+  .add-btn {
+    background: var(--rose); color: white; border: none;
+    width: 36px; height: 36px; border-radius: 50%;
+    font-size: 1.2rem; cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .add-btn:hover { background: var(--rose-dark); transform: scale(1.1); }
+  .stars { color: var(--gold); font-size: 0.75rem; margin-bottom: 0.5rem; }
+
+  /* OFFER BANNER */
+  .offer-banner {
+    background: linear-gradient(135deg, var(--rose-dark), #A84E6B);
+    padding: 4rem 5%; color: white; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .offer-banner::before {
+    content: '✦'; position: absolute; top: -20px; left: 10%; font-size: 8rem; opacity: 0.05;
+  }
+  .offer-banner::after {
+    content: '✦'; position: absolute; bottom: -30px; right: 8%; font-size: 10rem; opacity: 0.05;
+  }
+  .offer-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; margin-bottom: 0.8rem;
+  }
+  .offer-banner p { opacity: 0.85; margin-bottom: 2rem; font-size: 0.95rem; letter-spacing: 0.03em; }
+  .offer-code {
+    display: inline-block; background: rgba(255,255,255,0.15);
+    border: 1.5px dashed rgba(255,255,255,0.5);
+    padding: 0.5rem 1.5rem; border-radius: 0.5rem;
+    font-size: 1.3rem; font-weight: 600; letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--white); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .review-card {
+    background: var(--cream); border-radius: 1.2rem; padding: 1.8rem;
+    border: 1px solid rgba(194,97,122,0.1);
+    transition: box-shadow 0.3s;
+  }
+  .review-card:hover { box-shadow: var(--shadow); }
+  .review-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; color: white; font-size: 0.9rem;
+  }
+  .reviewer-name { font-weight: 500; font-size: 0.9rem; }
+  .reviewer-loc { font-size: 0.72rem; color: var(--muted); }
+  .review-text { font-size: 0.88rem; line-height: 1.7; color: var(--muted); font-style: italic; }
+
+  /* FEATURES */
+  .features {
+    background: var(--cream);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0; border-top: 1px solid rgba(44,36,32,0.06); border-bottom: 1px solid rgba(44,36,32,0.06);
+    padding: 3rem 5%;
+  }
+  .feature-item {
+    text-align: center; padding: 2rem 1rem;
+    border-right: 1px solid rgba(44,36,32,0.06);
+  }
+  .feature-item:last-child { border-right: none; }
+  .feature-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
+  .feature-title { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .feature-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--gold-light); text-align: center; padding: 5rem 5%;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .newsletter h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300; margin-bottom: 0.7rem; color: var(--charcoal);
+  }
+  .newsletter p { color: var(--muted); margin-bottom: 2rem; }
+  .email-form {
+    display: flex; gap: 0; max-width: 440px; margin: 0 auto;
+    border: 1.5px solid rgba(44,36,32,0.15); border-radius: 3rem; overflow: hidden;
+    background: white;
+  }
+  .email-form input {
+    flex: 1; padding: 0.85rem 1.5rem; border: none; outline: none;
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; background: transparent;
+  }
+  .email-form button {
+    background: var(--rose); color: white; border: none;
+    padding: 0.85rem 1.8rem; font-family: 'Jost', sans-serif;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+  }
+  .email-form button:hover { background: var(--rose-dark); }
+
+  /* CART DRAWER */
+  .cart-overlay {
+    position: fixed; inset: 0; background: rgba(44,36,32,0.4);
+    z-index: 200; opacity: 0; visibility: hidden; transition: all 0.3s;
+  }
+  .cart-overlay.open { opacity: 1; visibility: visible; }
+  .cart-drawer {
+    position: fixed; right: -420px; top: 0; bottom: 0; width: 380px;
+    background: white; z-index: 201; transition: right 0.35s ease;
+    display: flex; flex-direction: column;
+    box-shadow: -8px 0 40px rgba(44,36,32,0.15);
+  }
+  .cart-drawer.open { right: 0; }
+  .cart-header {
+    padding: 1.5rem; border-bottom: 1px solid rgba(44,36,32,0.08);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .cart-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+  .close-btn {
+    background: none; border: none; font-size: 1.4rem; cursor: pointer;
+    color: var(--muted); line-height: 1;
+  }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1.2rem; }
+  .cart-item {
+    display: flex; gap: 1rem; padding: 1rem 0;
+    border-bottom: 1px solid rgba(44,36,32,0.06);
+  }
+  .cart-item-img {
+    width: 60px; height: 60px; border-radius: 0.8rem;
+    background: var(--rose-light); display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; flex-shrink: 0;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .cart-item-price { font-size: 0.85rem; color: var(--rose); font-weight: 600; }
+  .qty-control { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+  .qty-btn {
+    width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(44,36,32,0.15);
+    background: none; cursor: pointer; font-size: 0.9rem; display: flex;
+    align-items: center; justify-content: center; transition: all 0.15s;
+  }
+  .qty-btn:hover { background: var(--rose); color: white; border-color: var(--rose); }
+  .qty-num { font-size: 0.82rem; font-weight: 600; min-width: 16px; text-align: center; }
+  .cart-footer { padding: 1.5rem; border-top: 1px solid rgba(44,36,32,0.08); }
+  .cart-total { display: flex; justify-content: space-between; margin-bottom: 1.2rem; font-weight: 600; }
+  .checkout-btn {
+    width: 100%; padding: 1rem; background: var(--rose); color: white;
+    border: none; border-radius: 2rem; font-family: 'Jost', sans-serif;
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .checkout-btn:hover { background: var(--rose-dark); }
+  .empty-cart { text-align: center; padding: 3rem 1rem; color: var(--muted); }
+  .empty-cart .emoji { font-size: 3rem; margin-bottom: 1rem; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); color: rgba(253,248,245,0.8);
+    padding: 4rem 5% 2rem;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+    color: var(--cream); margin-bottom: 0.8rem;
+  }
+  .footer-brand h3 span { color: var(--gold); }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.7; opacity: 0.65; }
+  .footer-col h4 { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.5rem; }
+  .footer-col a { font-size: 0.82rem; opacity: 0.65; color: inherit; text-decoration: none; transition: opacity 0.2s; }
+  .footer-col a:hover { opacity: 1; }
+  .footer-bottom {
+    border-top: 1px solid rgba(253,248,245,0.08);
+    padding-top: 1.5rem; display: flex;
+    justify-content: space-between; align-items: center;
+    font-size: 0.75rem; opacity: 0.5;
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--charcoal); color: white;
+    padding: 0.8rem 1.5rem; border-radius: 2rem; font-size: 0.85rem;
+    box-shadow: 0 8px 30px rgba(44,36,32,0.25);
+    z-index: 300; transition: transform 0.3s ease; white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* PRODUCT MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(44,36,32,0.5);
+    z-index: 300; opacity: 0; visibility: hidden; transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+  .modal {
+    background: white; border-radius: 1.5rem; max-width: 680px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    transform: scale(0.92); transition: transform 0.3s;
+    box-shadow: 0 20px 60px rgba(44,36,32,0.25);
+  }
+  .modal-overlay.open .modal { transform: scale(1); }
+  .modal-img { width: 100%; height: 320px; object-fit: cover; border-radius: 1.5rem 1.5rem 0 0; }
+  .modal-body { padding: 2rem; }
+  .modal-cat { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; }
+  .modal-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.3rem; }
+  .modal-brand { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.8rem; }
+  .modal-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+  .modal-price { font-size: 1.5rem; font-weight: 600; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .modal-price .old { font-size: 1rem; color: var(--muted); text-decoration: line-through; margin-right: 0.5rem; font-weight: 400; }
+  .modal-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: white; border: none; border-radius: 50%;
+    width: 36px; height: 36px; font-size: 1rem; cursor: pointer;
+    box-shadow: 0 2px 10px rgba(44,36,32,0.15); display: flex; align-items: center; justify-content: center;
+  }
+  .modal-wrap { position: relative; }
+  .modal-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--rose); text-decoration: none;
+    border: 1px solid var(--rose); padding: 0.4rem 0.9rem; border-radius: 2rem;
+    transition: all 0.2s; margin-top: 0.5rem;
+  }
+  .modal-link:hover { background: var(--rose); color: white; }
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero-visual { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    .hero { padding: 90px 4% 2rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-stats { gap: 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">Balaji <span>✦</span> Cosmetics</a>
+  <ul class="nav-links">
+    <li><a href="#categories">Shop</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">✦ Premium Beauty Store</div>
+    <h1>Discover Your<br><em>Natural Glow</em><br>with Balaji</h1>
+    <p>Curated skincare, makeup & wellness products from India's most trusted brands — because every skin deserves love.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Shop Now</a>
+      <a href="#categories" class="btn-outline">Browse Collections</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Products</span>
+      </div>
+    <div class="stat-item">
+      <span class="stat-num">50+</span>
+      <span class="stat-label">Brands</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">10K+</span>
+      <span class="stat-label">Happy Customers</span>
+    </div>
+  </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-placeholder">🌸</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Free delivery above ₹499</span><span class="dot">✦</span>
+    <span>100% Authentic Products</span><span class="dot">✦</span>
+    <span>New Arrivals Every Week</span><span class="dot">✦</span>
+    <span>Cruelty-Free Brands</span><span class="dot">✦</span>
+    <span>Easy Returns &amp; Exchange</span><span class="dot">✦</span>
+    <span>Free delivery above ₹499</span><span class="dot">✦</span>
+    <span>100% Authentic Products</span><span class="dot">✦</span>
+    <span>New Arrivals Every Week</span><span class="dot">✦</span>
+    <span>Cruelty-Free Brands</span><span class="dot">✦</span>
+    <span>Easy Returns &amp; Exchange</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-tag">Shop by Category</div>
+  <div class="section-title">Find What You're<br>Looking For</div>
+  <div class="categories-grid">
+    <div class="cat-card" onclick="goToCategory('Skincare')">
+      <div class="cat-icon">🧴</div>
+      <div class="cat-name">Skincare</div>
+      <div class="cat-count">8 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Makeup')">
+      <div class="cat-icon">💄</div>
+      <div class="cat-name">Makeup</div>
+      <div class="cat-count">8 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Haircare')">
+      <div class="cat-icon">💆</div>
+      <div class="cat-name">Haircare</div>
+      <div class="cat-count">6 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Fragrance')">
+      <div class="cat-icon">🌺</div>
+      <div class="cat-name">Fragrance</div>
+      <div class="cat-count">4 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Wellness')">
+      <div class="cat-icon">🌿</div>
+      <div class="cat-name">Wellness</div>
+      <div class="cat-count">4 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Bodycare')">
+      <div class="cat-icon">✨</div>
+      <div class="cat-name">Bodycare</div>
+      <div class="cat-count">4 products</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="feature-item">
+    <div class="feature-icon">🚚</div>
+    <div class="feature-title">Free Delivery</div>
+    <div class="feature-desc">On orders above ₹499</div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">🔒</div>
+    <div class="feature-title">Secure Payments</div>
+    <div class="feature-desc">100% safe & encrypted</div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">↩️</div>
+    <div class="feature-title">Easy Returns</div>
+    <div class="feature-desc">7-day hassle-free returns</div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">✅</div>
+    <div class="feature-title">100% Authentic</div>
+    <div class="feature-desc">Genuine branded products</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header">
+    <div>
+      <div class="section-tag">Our Products</div>
+      <div class="section-title">Best Sellers &amp;<br>New Arrivals</div>
+    </div>
+  </div>
+  <div class="filter-pills">
+    <button class="pill active" onclick="filterProducts('All', this)">All</button>
+    <button class="pill" onclick="filterProducts('Skincare', this)">Skincare</button>
+    <button class="pill" onclick="filterProducts('Makeup', this)">Makeup</button>
+    <button class="pill" onclick="filterProducts('Haircare', this)">Haircare</button>
+    <button class="pill" onclick="filterProducts('Fragrance', this)">Fragrance</button>
+    <button class="pill" onclick="filterProducts('Wellness', this)">Wellness</button>
+  </div>
+  <br>
+  <div class="products-grid" id="products-grid"></div>
+</section>
+
+<!-- OFFER BANNER -->
+<section class="offer-banner" id="offers">
+  <h2>Festive Season Special</h2>
+  <p>Get flat 20% off on your first order — use code below at checkout</p>
+  <div class="offer-code">BALAJI20</div>
+  <br>
+  <a href="#products" class="btn-primary" style="background:white; color: var(--rose-dark);">Shop the Sale</a>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div style="text-align: center; margin-bottom: 1rem;">
+    <div class="section-tag" style="display: inline-block;">Customer Love</div>
+  </div>
+  <div class="section-title" style="text-align:center;">What Our Customers Say</div>
+  <div class="testimonials-grid">
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">PR</div>
+        <div><div class="reviewer-name">Priya Rao</div><div class="reviewer-loc">📍 Bhopal</div></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Balaji Cosmetics has the best collection! The Lakme foundation I ordered arrived in perfect condition. Will definitely order again."</p>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">SK</div>
+        <div><div class="reviewer-name">Sneha Kulkarni</div><div class="reviewer-loc">📍 Indore</div></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Amazing quality products at very reasonable prices. The Mamaearth skincare range is my go-to now. Super fast delivery too!"</p>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">AM</div>
+        <div><div class="reviewer-name">Anita Mishra</div><div class="reviewer-loc">📍 Jabalpur</div></div>
+      </div>
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">"Great variety of products. I love that everything is 100% authentic. The packaging was also very secure and safe."</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="contact">
+  <div class="section-tag" style="display: inline-block; margin-bottom: 0.8rem;">Stay in the Loop</div>
+  <h2>Get Exclusive Deals &amp; Beauty Tips</h2>
+  <p>Subscribe to our newsletter and never miss a sale or new launch.</p>
+  <div class="email-form">
+    <input type="email" placeholder="Your email address..." id="email-input">
+    <button onclick="subscribe()">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Balaji <span>✦</span> Cosmetics</h3>
+      <p>Your trusted beauty destination in Bhopal. We bring you the finest cosmetics, skincare, and wellness products at honest prices.</p>
+      <br>
+      <p style="font-size:0.78rem; opacity:0.5;">📍 123, New Market, Bhopal, MP<br>📞 +91 98765 43210<br>✉ hello@balajicosmetics.in</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#products" onclick="goToCategory('Skincare')">Skincare</a></li>
+        <li><a href="#products" onclick="goToCategory('Makeup')">Makeup</a></li>
+        <li><a href="#products" onclick="goToCategory('Haircare')">Haircare</a></li>
+        <li><a href="#products" onclick="goToCategory('Fragrance')">Fragrances</a></li>
+        <li><a href="#products" onclick="goToCategory('Wellness')">Wellness</a></li>
+        <li><a href="#products" onclick="goToCategory('All')">New Arrivals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Brands</h4>
+      <ul>
+        <li><a href="#">Lakme</a></li>
+        <li><a href="#">Mamaearth</a></li>
+        <li><a href="#">Nykaa</a></li>
+        <li><a href="#">The Ordinary</a></li>
+        <li><a href="#">Himalaya</a></li>
+        <li><a href="#">SUGAR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Balaji Cosmetics. All rights reserved.</span>
+    <span>Made with 💗 in Bhopal, MP</span>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal modal-wrap">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-cat" id="modal-cat"></div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-brand" id="modal-brand"></div>
+      <div class="stars" id="modal-stars"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-price" id="modal-price"></div>
+      <div class="modal-actions">
+        <button class="btn-primary" id="modal-add-btn">Add to Cart</button>
+        <a class="modal-link" id="modal-link" href="#" target="_blank" rel="noopener">🔗 View on Brand Site</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart 🛍️</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list">
+    <div class="empty-cart"><div class="emoji">🛒</div><p>Your cart is empty</p></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-total"><span>Total</span><span id="cart-total-amount">₹0</span></div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+  // SKINCARE
+  { id:1,  name:"Vitamin C Serum", brand:"Mamaearth", cat:"Skincare", price:499, old:699, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80",
+    desc:"Brightening vitamin C serum with turmeric & niacinamide for radiant, even-toned skin. Dermatologist tested, paraben-free.",
+    link:"https://mamaearth.in" },
+  { id:2,  name:"Rose Water Toner", brand:"Himalaya", cat:"Skincare", price:199, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80",
+    desc:"100% pure rose water toner that hydrates, tones and refreshes skin. Alcohol-free, suitable for all skin types.",
+    link:"https://himalayawellness.in" },
+  { id:3,  name:"Niacinamide 10% Serum", brand:"The Ordinary", cat:"Skincare", price:649, old:799, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1601612628452-9e99ced43524?w=500&q=80",
+    desc:"High-strength niacinamide serum to visibly reduce pores, balance sebum and improve skin texture.",
+    link:"https://theordinary.com" },
+  { id:4,  name:"Sunscreen SPF 50+", brand:"Lotus Herbals", cat:"Skincare", price:349, old:449, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&q=80",
+    desc:"Broad-spectrum UVA/UVB protection with a lightweight, non-greasy finish. Safe for sensitive skin.",
+    link:"https://lotusherbals.com" },
+  { id:5,  name:"Retinol Night Cream", brand:"Olay", cat:"Skincare", price:899, old:1199, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&q=80",
+    desc:"Anti-aging retinol cream to reduce fine lines and wrinkles overnight. Clinically proven formula.",
+    link:"https://olay.in" },
+  { id:6,  name:"Hyaluronic Acid Moisturizer", brand:"Plum", cat:"Skincare", price:549, old:699, badge:"new", stars:5,
+    img:"https://images.unsplash.com/photo-1590156546638-8a2f3aba1814?w=500&q=80",
+    desc:"Intense hydration with 5 types of hyaluronic acid. Plumps skin for a dewy, glass-skin look.",
+    link:"https://plumgoodness.com" },
+  { id:7,  name:"Clay Face Mask", brand:"Wow Skin", cat:"Skincare", price:299, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=500&q=80",
+    desc:"Deep cleansing kaolin clay mask that draws out impurities and unclogs pores. 100% natural.",
+    link:"https://buywow.in" },
+  { id:8,  name:"Under Eye Cream", brand:"Biotique", cat:"Skincare", price:249, old:349, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1617897903246-719242758050?w=500&q=80",
+    desc:"Reduces dark circles, puffiness and fine lines. Fortified with natural herbs and bio-actives.",
+    link:"https://biotique.com" },
+
+  // MAKEUP
+  { id:9,  name:"Matte Liquid Lipstick", brand:"SUGAR Cosmetics", cat:"Makeup", price:349, old:499, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1586495777744-4e6232bf2f9b?w=500&q=80",
+    desc:"Transferproof, 12-hour wear matte liquid lipstick in bold, pigmented shades. Lightweight formula.",
+    link:"https://sugarcosmetics.com" },
+  { id:10, name:"CC Cream SPF 50", brand:"Lakme", cat:"Makeup", price:449, old:599, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&q=80",
+    desc:"5-in-1 skin perfector with SPF 50, foundation, primer, moisturizer, sunscreen and serum benefits.",
+    link:"https://lakmeindia.com" },
+  { id:11, name:"Kajal Kohl Pencil", brand:"Nykaa", cat:"Makeup", price:149, old:199, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1526510747491-58f928ec870f?w=500&q=80",
+    desc:"Intense black kohl kajal pencil with creamy formula for dramatic eyes. Long-lasting, smudge-proof.",
+    link:"https://nykaa.com" },
+  { id:12, name:"HD Foundation", brand:"Maybelline", cat:"Makeup", price:599, old:799, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500&q=80",
+    desc:"Buildable full-coverage HD foundation with a natural finish. Available in 40 shades. 24HR wear.",
+    link:"https://maybelline.in" },
+  { id:13, name:"Eyeshadow Palette", brand:"NYX", cat:"Makeup", price:799, old:1099, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=500&q=80",
+    desc:"12-shade highly pigmented eyeshadow palette with matte, shimmer and glitter finishes.",
+    link:"https://nyxcosmetics.in" },
+  { id:14, name:"Blush & Bronzer Duo", brand:"SUGAR", cat:"Makeup", price:449, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&q=80",
+    desc:"Buildable blush and bronzer in one compact. Creates a sun-kissed, glowing look in seconds.",
+    link:"https://sugarcosmetics.com" },
+  { id:15, name:"Waterproof Mascara", brand:"Lakme", cat:"Makeup", price:249, old:299, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1631214524020-3c69888a3e8f?w=500&q=80",
+    desc:"Volumizing, lengthening waterproof mascara for bold lashes that last all day. Clump-free brush.",
+    link:"https://lakmeindia.com" },
+  { id:16, name:"Setting Spray", brand:"e.l.f.", cat:"Makeup", price:399, old:499, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1614204424926-197073d1e49b?w=500&q=80",
+    desc:"Lock your makeup in place for up to 16 hours. Refreshing coconut water mist finish.",
+    link:"https://elfcosmetics.in" },
+
+  // HAIRCARE
+  { id:17, name:"Keratin Hair Mask", brand:"L'Oréal", cat:"Haircare", price:649, old:849, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500&q=80",
+    desc:"Intense repair keratin hair mask for smooth, frizz-free, salon-glossy hair in just 8 minutes.",
+    link:"https://lorealparis.in" },
+  { id:18, name:"Onion Hair Oil", brand:"Mamaearth", cat:"Haircare", price:299, old:399, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80",
+    desc:"Onion & bhringraj hair oil to reduce hair fall, strengthen roots and promote growth.",
+    link:"https://mamaearth.in" },
+  { id:19, name:"Anti-Dandruff Shampoo", brand:"Head & Shoulders", cat:"Haircare", price:249, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?w=500&q=80",
+    desc:"Clinical-strength anti-dandruff shampoo. Clinically proven to remove 100% of visible flakes.",
+    link:"https://headandshoulders.in" },
+  { id:20, name:"Hair Serum", brand:"Tresemmé", cat:"Haircare", price:199, old:249, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&q=80",
+    desc:"Salon-finish hair serum for frizz control, shine and smoothness. Works on all hair types.",
+    link:"https://tresemme.com" },
+  { id:21, name:"Dry Shampoo", brand:"Batiste", cat:"Haircare", price:399, old:499, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1541855492-581f618f69a0?w=500&q=80",
+    desc:"Refreshes roots, absorbs oil and adds volume between washes. Light fresh fragrance.",
+    link:"https://batistehair.com" },
+  { id:22, name:"Biotin Hair Gummies", brand:"Wow Skin", cat:"Haircare", price:549, old:699, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80",
+    desc:"Biotin, folic acid & zinc gummies that nourish from within for stronger, longer hair. 60 gummies.",
+    link:"https://buywow.in" },
+
+  // FRAGRANCE
+  { id:23, name:"Perfume Mist EDP", brand:"Engage", cat:"Fragrance", price:299, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&q=80",
+    desc:"Fresh floral and woody eau de parfum. Long-lasting 8-hour sillage with bergamot top notes.",
+    link:"https://engage.in" },
+  { id:24, name:"Oud Collection EDP", brand:"Ajmal", cat:"Fragrance", price:1299, old:1599, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1588514912908-a2b358e8de46?w=500&q=80",
+    desc:"Luxurious oud-based eau de parfum. Rich, deep and complex fragrance that lasts all day.",
+    link:"https://ajmalperfume.com" },
+  { id:25, name:"Body Splash", brand:"Yardley", cat:"Fragrance", price:179, old:229, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1547887538-047f814bc565?w=500&q=80",
+    desc:"Light, refreshing English Lavender body splash. Perfect for everyday wear. No alcohol harsh.",
+    link:"https://yardley.in" },
+  { id:26, name:"Car & Room Diffuser", brand:"Iris", cat:"Fragrance", price:399, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1602928321679-560bb453f190?w=500&q=80",
+    desc:"Reed diffuser with premium fragrance oil. Fills your space with long-lasting aroma for 45 days.",
+    link:"https://iris-fragrance.com" },
+
+  // WELLNESS
+  { id:27, name:"Aloe Vera Gel", brand:"Wow Skin", cat:"Wellness", price:249, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=500&q=80",
+    desc:"100% pure aloe vera gel for soothing, healing and hydrating skin and scalp. No added chemicals.",
+    link:"https://buywow.in" },
+  { id:28, name:"Collagen Peptide Supplement", brand:"Oziva", cat:"Wellness", price:999, old:1299, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80",
+    desc:"Marine collagen peptides with hyaluronic acid and vitamin C for youthful skin, hair and nails.",
+    link:"https://oziva.in" },
+  { id:29, name:"Essential Oil Set", brand:"Soulflower", cat:"Wellness", price:799, old:999, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&q=80",
+    desc:"6-piece set of therapeutic grade essential oils — lavender, eucalyptus, peppermint, tea tree & more.",
+    link:"https://soulflower.biz" },
+  { id:30, name:"Jade Roller & Gua Sha", brand:"Pilgrim", cat:"Wellness", price:499, old:649, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80",
+    desc:"Real jade facial roller and gua sha tool set. De-puffs, lifts and boosts blood circulation.",
+    link:"https://pilgrimbeauty.in" },
+
+  // BODYCARE
+  { id:31, name:"Body Butter Lotion", brand:"Biotique", cat:"Bodycare", price:399, old:499, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&q=80",
+    desc:"Rich shea and cocoa body butter that melts into skin for 48-hour deep moisturization.",
+    link:"https://biotique.com" },
+  { id:32, name:"Coffee Body Scrub", brand:"mCaffeine", cat:"Bodycare", price:349, old:null, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80",
+    desc:"Exfoliating arabica coffee body scrub that polishes, brightens and energizes skin. No parabens.",
+    link:"https://mcaffeine.com" },
+  { id:33, name:"Talc-Free Body Powder", brand:"Dove", cat:"Bodycare", price:199, old:249, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&q=80",
+    desc:"Talc-free cornstarch body powder with ¼ moisturizing cream. Gentle, soft and fresh all day.",
+    link:"https://dove.com/in" },
+  { id:34, name:"Foot Cream", brand:"Himalaya", cat:"Bodycare", price:149, old:199, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&q=80",
+    desc:"Intensive foot cream with natural shea and cocoa butter. Heals cracked heels overnight.",
+    link:"https://himalayawellness.in" },
+];
+
+let cart = [];
+let currentFilter = 'All';
+
+function renderProducts(filter = 'All') {
+  const grid = document.getElementById('products-grid');
+  const filtered = filter === 'All' ? products : products.filter(p => p.cat === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+        ${p.badge ? `<span class="badge badge-${p.badge}">${p.badge === 'bestseller' ? '🔥 Best Seller' : p.badge === 'new' ? '✨ New' : '🏷 Sale'}</span>` : ''}
+      </div>
+      <div class="product-info">
+        <div class="product-category">${p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-brand">${p.brand}</div>
+        <div class="stars">${'★'.repeat(p.stars)}${'☆'.repeat(5-p.stars)}</div>
+        <div class="product-footer">
+          <div class="product-price">
+            ${p.old ? `<span class="old">₹${p.old}</span>` : ''}₹${p.price}
+          </div>
+          <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})" title="Add to cart">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function goToCategory(cat) {
+  currentFilter = cat;
+  const allPills = document.querySelectorAll('.pill');
+  allPills.forEach(p => {
+    p.classList.toggle('active', p.textContent.trim() === cat || (cat === 'All' && p.textContent.trim() === 'All'));
+  });
+  renderProducts(cat);
+  setTimeout(() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' }), 50);
+}
+
+function filterProducts(cat, btn) {
+  currentFilter = cat;
+  if (btn) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  renderProducts(cat);
+}
+
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  document.getElementById('modal-img').src = p.img;
+  document.getElementById('modal-img').alt = p.name;
+  document.getElementById('modal-cat').textContent = p.cat;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-brand').textContent = 'by ' + p.brand;
+  document.getElementById('modal-stars').textContent = '★'.repeat(p.stars) + '☆'.repeat(5-p.stars);
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-price').innerHTML = (p.old ? `<span class="old">₹${p.old}</span>` : '') + `₹${p.price}`;
+  document.getElementById('modal-add-btn').onclick = () => { addToCart(id); closeModalBtn(); };
+  document.getElementById('modal-link').href = p.link;
+  document.getElementById('modal-link').textContent = '🔗 Visit ' + p.brand + ' Website';
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(i => i.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ ...product, qty: 1 });
+  updateCartUI();
+  showToast(`🛒 ${product.name} added to cart!`);
+}
+
+function updateCartUI() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+  const list = document.getElementById('cart-items-list');
+  const footer = document.getElementById('cart-footer');
+  if (cart.length === 0) {
+    list.innerHTML = '<div class="empty-cart"><div class="emoji">🛒</div><p>Your cart is empty</p></div>';
+    footer.style.display = 'none';
+    return;
+  }
+  footer.style.display = 'block';
+  list.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-img"><img src="${item.img}" style="width:60px;height:60px;object-fit:cover;border-radius:0.8rem;" onerror="this.outerHTML='<span style=font-size:1.5rem>🛍️</span>'"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">₹${item.price}</div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  document.getElementById('cart-total-amount').textContent = `₹${total}`;
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  updateCartUI();
+}
+
+function toggleCart() {
+  document.getElementById('cart-overlay').classList.toggle('open');
+  document.getElementById('cart-drawer').classList.toggle('open');
+}
+
+function checkout() {
+  if (cart.length === 0) return;
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  showToast(`✅ Order placed! Total: ₹${total}. Thank you!`);
+  cart = [];
+  updateCartUI();
+  toggleCart();
+}
+
+function subscribe() {
+  const val = document.getElementById('email-input').value.trim();
+  if (!val || !val.includes('@')) { showToast('⚠️ Please enter a valid email!'); return; }
+  showToast('💌 Subscribed! Welcome to the Balaji family!');
+  document.getElementById('email-input').value = '';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+renderProducts();
+</script>
+</body>
+</html>ducts</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Fragrance')">
+      <div class="cat-icon">🌺</div>
+      <div class="cat-name">Fragrance</div>
+      <div class="cat-count">4 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Wellness')">
+      <div class="cat-icon">🌿</div>
+      <div class="cat-name">Wellness</div>
+      <div class="cat-count">4 products</div>
+    </div>
+    <div class="cat-card" onclick="goToCategory('Bodycare')">
+      <div class="cat-icon">✨</div>
+      <div class="cat-name">Bodycare</div>
+      <div class="cat-count">4 products</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="feature-item">
+    <div class="feature-icon">🚚</div>
+    <div class="feature-title">Free Delivery</div>
+    <div class="feature-desc">On orders above ₹499</div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">🔒</div>
+    <div class="feature-title">Secure Payments</div>
+    <div class="feature-desc">100% safe & encrypted</div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">↩️</div>
+    <div class="feature-title">Easy Returns</div>
+    <div class="feature-desc">7-day hassle-free returns</div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">✅</div>
+    <div class="feature-title">100% Authentic</div>
+    <div class="feature-desc">Genuine branded products</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header">
+    <div>
+      <div class="section-tag">Our Products</div>
+      <div class="section-title">Best Sellers &amp;<br>New Arrivals</div>
+    </div>
+  </div>
+  <div class="filter-pills">
+    <button class="pill active" onclick="filterProducts('All', this)">All</button>
+    <button class="pill" onclick="filterProducts('Skincare', this)">Skincare</button>
+    <button class="pill" onclick="filterProducts('Makeup', this)">Makeup</button>
+    <button class="pill" onclick="filterProducts('Haircare', this)">Haircare</button>
+    <button class="pill" onclick="filterProducts('Fragrance', this)">Fragrance</button>
+    <button class="pill" onclick="filterProducts('Wellness', this)">Wellness</button>
+  </div>
+  <br>
+  <div class="products-grid" id="products-grid"></div>
+</section>
+
+<!-- OFFER BANNER -->
+<section class="offer-banner" id="offers">
+  <h2>Festive Season Special</h2>
+  <p>Get flat 20% off on your first order — use code below at checkout</p>
+  <div class="offer-code">BALAJI20</div>
+  <br>
+  <a href="#products" class="btn-primary" style="background:white; color: var(--rose-dark);">Shop the Sale</a>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div style="text-align: center; margin-bottom: 1rem;">
+    <div class="section-tag" style="display: inline-block;">Customer Love</div>
+  </div>
+  <div class="section-title" style="text-align:center;">What Our Customers Say</div>
+  <div class="testimonials-grid">
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">PR</div>
+        <div><div class="reviewer-name">Priya Rao</div><div class="reviewer-loc">📍 Bhopal</div></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Balaji Cosmetics has the best collection! The Lakme foundation I ordered arrived in perfect condition. Will definitely order again."</p>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">SK</div>
+        <div><div class="reviewer-name">Sneha Kulkarni</div><div class="reviewer-loc">📍 Indore</div></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Amazing quality products at very reasonable prices. The Mamaearth skincare range is my go-to now. Super fast delivery too!"</p>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">AM</div>
+        <div><div class="reviewer-name">Anita Mishra</div><div class="reviewer-loc">📍 Jabalpur</div></div>
+      </div>
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">"Great variety of products. I love that everything is 100% authentic. The packaging was also very secure and safe."</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="contact">
+  <div class="section-tag" style="display: inline-block; margin-bottom: 0.8rem;">Stay in the Loop</div>
+  <h2>Get Exclusive Deals &amp; Beauty Tips</h2>
+  <p>Subscribe to our newsletter and never miss a sale or new launch.</p>
+  <div class="email-form">
+    <input type="email" placeholder="Your email address..." id="email-input">
+    <button onclick="subscribe()">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Balaji <span>✦</span> Cosmetics</h3>
+      <p>Your trusted beauty destination in Bhopal. We bring you the finest cosmetics, skincare, and wellness products at honest prices.</p>
+      <br>
+      <p style="font-size:0.78rem; opacity:0.5;">📍 123, New Market, Bhopal, MP<br>📞 +91 98765 43210<br>✉ hello@balajicosmetics.in</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#products" onclick="goToCategory('Skincare')">Skincare</a></li>
+        <li><a href="#products" onclick="goToCategory('Makeup')">Makeup</a></li>
+        <li><a href="#products" onclick="goToCategory('Haircare')">Haircare</a></li>
+        <li><a href="#products" onclick="goToCategory('Fragrance')">Fragrances</a></li>
+        <li><a href="#products" onclick="goToCategory('Wellness')">Wellness</a></li>
+        <li><a href="#products" onclick="goToCategory('All')">New Arrivals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Brands</h4>
+      <ul>
+        <li><a href="#">Lakme</a></li>
+        <li><a href="#">Mamaearth</a></li>
+        <li><a href="#">Nykaa</a></li>
+        <li><a href="#">The Ordinary</a></li>
+        <li><a href="#">Himalaya</a></li>
+        <li><a href="#">SUGAR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Balaji Cosmetics. All rights reserved.</span>
+    <span>Made with 💗 in Bhopal, MP</span>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal modal-wrap">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-cat" id="modal-cat"></div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-brand" id="modal-brand"></div>
+      <div class="stars" id="modal-stars"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-price" id="modal-price"></div>
+      <div class="modal-actions">
+        <button class="btn-primary" id="modal-add-btn">Add to Cart</button>
+        <a class="modal-link" id="modal-link" href="#" target="_blank" rel="noopener">🔗 View on Brand Site</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart 🛍️</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list">
+    <div class="empty-cart"><div class="emoji">🛒</div><p>Your cart is empty</p></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-total"><span>Total</span><span id="cart-total-amount">₹0</span></div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+  // SKINCARE
+  { id:1,  name:"Vitamin C Serum", brand:"Mamaearth", cat:"Skincare", price:499, old:699, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80",
+    desc:"Brightening vitamin C serum with turmeric & niacinamide for radiant, even-toned skin. Dermatologist tested, paraben-free.",
+    link:"https://mamaearth.in" },
+  { id:2,  name:"Rose Water Toner", brand:"Himalaya", cat:"Skincare", price:199, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80",
+    desc:"100% pure rose water toner that hydrates, tones and refreshes skin. Alcohol-free, suitable for all skin types.",
+    link:"https://himalayawellness.in" },
+  { id:3,  name:"Niacinamide 10% Serum", brand:"The Ordinary", cat:"Skincare", price:649, old:799, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1601612628452-9e99ced43524?w=500&q=80",
+    desc:"High-strength niacinamide serum to visibly reduce pores, balance sebum and improve skin texture.",
+    link:"https://theordinary.com" },
+  { id:4,  name:"Sunscreen SPF 50+", brand:"Lotus Herbals", cat:"Skincare", price:349, old:449, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&q=80",
+    desc:"Broad-spectrum UVA/UVB protection with a lightweight, non-greasy finish. Safe for sensitive skin.",
+    link:"https://lotusherbals.com" },
+  { id:5,  name:"Retinol Night Cream", brand:"Olay", cat:"Skincare", price:899, old:1199, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&q=80",
+    desc:"Anti-aging retinol cream to reduce fine lines and wrinkles overnight. Clinically proven formula.",
+    link:"https://olay.in" },
+  { id:6,  name:"Hyaluronic Acid Moisturizer", brand:"Plum", cat:"Skincare", price:549, old:699, badge:"new", stars:5,
+    img:"https://images.unsplash.com/photo-1590156546638-8a2f3aba1814?w=500&q=80",
+    desc:"Intense hydration with 5 types of hyaluronic acid. Plumps skin for a dewy, glass-skin look.",
+    link:"https://plumgoodness.com" },
+  { id:7,  name:"Clay Face Mask", brand:"Wow Skin", cat:"Skincare", price:299, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=500&q=80",
+    desc:"Deep cleansing kaolin clay mask that draws out impurities and unclogs pores. 100% natural.",
+    link:"https://buywow.in" },
+  { id:8,  name:"Under Eye Cream", brand:"Biotique", cat:"Skincare", price:249, old:349, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1617897903246-719242758050?w=500&q=80",
+    desc:"Reduces dark circles, puffiness and fine lines. Fortified with natural herbs and bio-actives.",
+    link:"https://biotique.com" },
+
+  // MAKEUP
+  { id:9,  name:"Matte Liquid Lipstick", brand:"SUGAR Cosmetics", cat:"Makeup", price:349, old:499, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1586495777744-4e6232bf2f9b?w=500&q=80",
+    desc:"Transferproof, 12-hour wear matte liquid lipstick in bold, pigmented shades. Lightweight formula.",
+    link:"https://sugarcosmetics.com" },
+  { id:10, name:"CC Cream SPF 50", brand:"Lakme", cat:"Makeup", price:449, old:599, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&q=80",
+    desc:"5-in-1 skin perfector with SPF 50, foundation, primer, moisturizer, sunscreen and serum benefits.",
+    link:"https://lakmeindia.com" },
+  { id:11, name:"Kajal Kohl Pencil", brand:"Nykaa", cat:"Makeup", price:149, old:199, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1526510747491-58f928ec870f?w=500&q=80",
+    desc:"Intense black kohl kajal pencil with creamy formula for dramatic eyes. Long-lasting, smudge-proof.",
+    link:"https://nykaa.com" },
+  { id:12, name:"HD Foundation", brand:"Maybelline", cat:"Makeup", price:599, old:799, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500&q=80",
+    desc:"Buildable full-coverage HD foundation with a natural finish. Available in 40 shades. 24HR wear.",
+    link:"https://maybelline.in" },
+  { id:13, name:"Eyeshadow Palette", brand:"NYX", cat:"Makeup", price:799, old:1099, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=500&q=80",
+    desc:"12-shade highly pigmented eyeshadow palette with matte, shimmer and glitter finishes.",
+    link:"https://nyxcosmetics.in" },
+  { id:14, name:"Blush & Bronzer Duo", brand:"SUGAR", cat:"Makeup", price:449, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&q=80",
+    desc:"Buildable blush and bronzer in one compact. Creates a sun-kissed, glowing look in seconds.",
+    link:"https://sugarcosmetics.com" },
+  { id:15, name:"Waterproof Mascara", brand:"Lakme", cat:"Makeup", price:249, old:299, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1631214524020-3c69888a3e8f?w=500&q=80",
+    desc:"Volumizing, lengthening waterproof mascara for bold lashes that last all day. Clump-free brush.",
+    link:"https://lakmeindia.com" },
+  { id:16, name:"Setting Spray", brand:"e.l.f.", cat:"Makeup", price:399, old:499, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1614204424926-197073d1e49b?w=500&q=80",
+    desc:"Lock your makeup in place for up to 16 hours. Refreshing coconut water mist finish.",
+    link:"https://elfcosmetics.in" },
+
+  // HAIRCARE
+  { id:17, name:"Keratin Hair Mask", brand:"L'Oréal", cat:"Haircare", price:649, old:849, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500&q=80",
+    desc:"Intense repair keratin hair mask for smooth, frizz-free, salon-glossy hair in just 8 minutes.",
+    link:"https://lorealparis.in" },
+  { id:18, name:"Onion Hair Oil", brand:"Mamaearth", cat:"Haircare", price:299, old:399, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&q=80",
+    desc:"Onion & bhringraj hair oil to reduce hair fall, strengthen roots and promote growth.",
+    link:"https://mamaearth.in" },
+  { id:19, name:"Anti-Dandruff Shampoo", brand:"Head & Shoulders", cat:"Haircare", price:249, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?w=500&q=80",
+    desc:"Clinical-strength anti-dandruff shampoo. Clinically proven to remove 100% of visible flakes.",
+    link:"https://headandshoulders.in" },
+  { id:20, name:"Hair Serum", brand:"Tresemmé", cat:"Haircare", price:199, old:249, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&q=80",
+    desc:"Salon-finish hair serum for frizz control, shine and smoothness. Works on all hair types.",
+    link:"https://tresemme.com" },
+  { id:21, name:"Dry Shampoo", brand:"Batiste", cat:"Haircare", price:399, old:499, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1541855492-581f618f69a0?w=500&q=80",
+    desc:"Refreshes roots, absorbs oil and adds volume between washes. Light fresh fragrance.",
+    link:"https://batistehair.com" },
+  { id:22, name:"Biotin Hair Gummies", brand:"Wow Skin", cat:"Haircare", price:549, old:699, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80",
+    desc:"Biotin, folic acid & zinc gummies that nourish from within for stronger, longer hair. 60 gummies.",
+    link:"https://buywow.in" },
+
+  // FRAGRANCE
+  { id:23, name:"Perfume Mist EDP", brand:"Engage", cat:"Fragrance", price:299, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&q=80",
+    desc:"Fresh floral and woody eau de parfum. Long-lasting 8-hour sillage with bergamot top notes.",
+    link:"https://engage.in" },
+  { id:24, name:"Oud Collection EDP", brand:"Ajmal", cat:"Fragrance", price:1299, old:1599, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1588514912908-a2b358e8de46?w=500&q=80",
+    desc:"Luxurious oud-based eau de parfum. Rich, deep and complex fragrance that lasts all day.",
+    link:"https://ajmalperfume.com" },
+  { id:25, name:"Body Splash", brand:"Yardley", cat:"Fragrance", price:179, old:229, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1547887538-047f814bc565?w=500&q=80",
+    desc:"Light, refreshing English Lavender body splash. Perfect for everyday wear. No alcohol harsh.",
+    link:"https://yardley.in" },
+  { id:26, name:"Car & Room Diffuser", brand:"Iris", cat:"Fragrance", price:399, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1602928321679-560bb453f190?w=500&q=80",
+    desc:"Reed diffuser with premium fragrance oil. Fills your space with long-lasting aroma for 45 days.",
+    link:"https://iris-fragrance.com" },
+
+  // WELLNESS
+  { id:27, name:"Aloe Vera Gel", brand:"Wow Skin", cat:"Wellness", price:249, old:null, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=500&q=80",
+    desc:"100% pure aloe vera gel for soothing, healing and hydrating skin and scalp. No added chemicals.",
+    link:"https://buywow.in" },
+  { id:28, name:"Collagen Peptide Supplement", brand:"Oziva", cat:"Wellness", price:999, old:1299, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80",
+    desc:"Marine collagen peptides with hyaluronic acid and vitamin C for youthful skin, hair and nails.",
+    link:"https://oziva.in" },
+  { id:29, name:"Essential Oil Set", brand:"Soulflower", cat:"Wellness", price:799, old:999, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&q=80",
+    desc:"6-piece set of therapeutic grade essential oils — lavender, eucalyptus, peppermint, tea tree & more.",
+    link:"https://soulflower.biz" },
+  { id:30, name:"Jade Roller & Gua Sha", brand:"Pilgrim", cat:"Wellness", price:499, old:649, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80",
+    desc:"Real jade facial roller and gua sha tool set. De-puffs, lifts and boosts blood circulation.",
+    link:"https://pilgrimbeauty.in" },
+
+  // BODYCARE
+  { id:31, name:"Body Butter Lotion", brand:"Biotique", cat:"Bodycare", price:399, old:499, badge:"sale", stars:5,
+    img:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&q=80",
+    desc:"Rich shea and cocoa body butter that melts into skin for 48-hour deep moisturization.",
+    link:"https://biotique.com" },
+  { id:32, name:"Coffee Body Scrub", brand:"mCaffeine", cat:"Bodycare", price:349, old:null, badge:"bestseller", stars:5,
+    img:"https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80",
+    desc:"Exfoliating arabica coffee body scrub that polishes, brightens and energizes skin. No parabens.",
+    link:"https://mcaffeine.com" },
+  { id:33, name:"Talc-Free Body Powder", brand:"Dove", cat:"Bodycare", price:199, old:249, badge:"new", stars:4,
+    img:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&q=80",
+    desc:"Talc-free cornstarch body powder with ¼ moisturizing cream. Gentle, soft and fresh all day.",
+    link:"https://dove.com/in" },
+  { id:34, name:"Foot Cream", brand:"Himalaya", cat:"Bodycare", price:149, old:199, badge:"sale", stars:4,
+    img:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&q=80",
+    desc:"Intensive foot cream with natural shea and cocoa butter. Heals cracked heels overnight.",
+    link:"https://himalayawellness.in" },
+];
+
+let cart = [];
+let currentFilter = 'All';
+
+function renderProducts(filter = 'All') {
+  const grid = document.getElementById('products-grid');
+  const filtered = filter === 'All' ? products : products.filter(p => p.cat === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+        ${p.badge ? `<span class="badge badge-${p.badge}">${p.badge === 'bestseller' ? '🔥 Best Seller' : p.badge === 'new' ? '✨ New' : '🏷 Sale'}</span>` : ''}
+      </div>
+      <div class="product-info">
+        <div class="product-category">${p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-brand">${p.brand}</div>
+        <div class="stars">${'★'.repeat(p.stars)}${'☆'.repeat(5-p.stars)}</div>
+        <div class="product-footer">
+          <div class="product-price">
+            ${p.old ? `<span class="old">₹${p.old}</span>` : ''}₹${p.price}
+          </div>
+          <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})" title="Add to cart">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function goToCategory(cat) {
+  currentFilter = cat;
+  const allPills = document.querySelectorAll('.pill');
+  allPills.forEach(p => {
+    p.classList.toggle('active', p.textContent.trim() === cat || (cat === 'All' && p.textContent.trim() === 'All'));
+  });
+  renderProducts(cat);
+  setTimeout(() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' }), 50);
+}
+
+function filterProducts(cat, btn) {
+  currentFilter = cat;
+  if (btn) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  renderProducts(cat);
+}
+
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  document.getElementById('modal-img').src = p.img;
+  document.getElementById('modal-img').alt = p.name;
+  document.getElementById('modal-cat').textContent = p.cat;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-brand').textContent = 'by ' + p.brand;
+  document.getElementById('modal-stars').textContent = '★'.repeat(p.stars) + '☆'.repeat(5-p.stars);
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-price').innerHTML = (p.old ? `<span class="old">₹${p.old}</span>` : '') + `₹${p.price}`;
+  document.getElementById('modal-add-btn').onclick = () => { addToCart(id); closeModalBtn(); };
+  document.getElementById('modal-link').href = p.link;
+  document.getElementById('modal-link').textContent = '🔗 Visit ' + p.brand + ' Website';
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(i => i.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ ...product, qty: 1 });
+  updateCartUI();
+  showToast(`🛒 ${product.name} added to cart!`);
+}
+
+function updateCartUI() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+  const list = document.getElementById('cart-items-list');
+  const footer = document.getElementById('cart-footer');
+  if (cart.length === 0) {
+    list.innerHTML = '<div class="empty-cart"><div class="emoji">🛒</div><p>Your cart is empty</p></div>';
+    footer.style.display = 'none';
+    return;
+  }
+  footer.style.display = 'block';
+  list.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-img"><img src="${item.img}" style="width:60px;height:60px;object-fit:cover;border-radius:0.8rem;" onerror="this.outerHTML='<span style=font-size:1.5rem>🛍️</span>'"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">₹${item.price}</div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  document.getElementById('cart-total-amount').textContent = `₹${total}`;
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  updateCartUI();
+}
+
+function toggleCart() {
+  document.getElementById('cart-overlay').classList.toggle('open');
+  document.getElementById('cart-drawer').classList.toggle('open');
+}
+
+function checkout() {
+  if (cart.length === 0) return;
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  showToast(`✅ Order placed! Total: ₹${total}. Thank you!`);
+  cart = [];
+  updateCartUI();
+  toggleCart();
+}
+
+function subscribe() {
+  const val = document.getElementById('email-input').value.trim();
+  if (!val || !val.includes('@')) { showToast('⚠️ Please enter a valid email!'); return; }
+  showToast('💌 Subscribed! Welcome to the Balaji family!');
+  document.getElementById('email-input').value = '';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+renderProducts();
+</script>
+</body>
+</html>
